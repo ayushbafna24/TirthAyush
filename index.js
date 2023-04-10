@@ -1,7 +1,12 @@
 const express = require("express");
 const app = express();
+const https = require("https");
+const fs = require("fs");
+const key = fs.readFileSync("./privatekey.pem", "utf8");
+const cert = fs.readFileSync("./certificate.pem", "utf8");
 
-const { proxy, scriptUrl } = require("rtsp-relay")(app);
+const server = https.createServer({ key, cert }, app);
+const { proxy, scriptUrl } = require("rtsp-relay")(app, server);
 
 const handler = proxy({
   url: `rtsp://admin:Gurudev123@43.229.227.94:554/cam/realmonitor?channel=1&subtype=1`,
