@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { proxy, scriptUrl } = require("rtsp-relay")(app, server);
+const { proxy, scriptUrl } = require("rtsp-relay")(app);
 
 const handler = proxy({
   url: `rtsp://admin:Gurudev123@43.229.227.94:554/cam/realmonitor?channel=1&subtype=1`,
