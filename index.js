@@ -31,7 +31,7 @@ app.get("/", (req, res) =>
   </style>
   <script>
     loadPlayer({
-      url: 'ws://' + location.host + '/api/stream',
+      url: 'wss://' + location.host + '/api/stream',
       canvas: document.getElementById('canvas')
     });
   </script>
